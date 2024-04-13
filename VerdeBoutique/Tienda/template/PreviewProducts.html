@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{%load static%}
+	{%csrf_token%}
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+	<!-- title -->
+	{%block title%}<title>Fruitkha</title>{%endblock%}
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="{%static 'Tienda/assets/img/favicon.png' %}">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="{%static 'Tienda/assets/css/all.min.css' %}">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="{%static 'Tienda/assets/bootstrap/css/bootstrap.min.css' %}">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="{%static 'Tienda/assets/css/owl.carousel.css' %}">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="{%static 'Tienda/assets/css/magnific-popup.css' %}">
+	<!-- animate css -->
+	<link rel="stylesheet" href="{%static 'Tienda/assets/css/animate.css' %}">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="{%static 'Tienda/assets/css/meanmenu.min.css' %}">
+	<!-- main style -->
+	<link rel="stylesheet" href="{%static 'Tienda/assets/css/main.css' %}">
+	<!-- responsive -->
+	<link rel="stylesheet" href="{%static 'Tienda/assets/css/responsive.css' %}">
+
+</head>
+<body>
+	
+
+	<!-- header -->
+	<div class="top-header-area" id="sticker">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 text-center">
+					<div class="main-menu-wrap">
+						<!-- logo -->
+						<div class="site-logo">
+							<a href="index.html">
+								<img src="{% static 'Tienda/assets/img/GreenFruitLogo4.png' %}" alt="">
+							</a>
+						</div>
+						<!-- logo -->
+						
+						<!-- menu start -->
+						<nav class="main-menu">
+							<ul>
+								<li class="current-list-item"><a>Menu</a>
+									<ul class="sub-menu">
+										<li><a href="{%url 'About'%}">Nostros</a></li>
+										<li><a href="{%url 'First'%}">Regresar</a></li>
+									</ul>
+								</li>
+								{%if request.user.is_authenticated %}
+								<li><a href="{%url 'About' %}">Nosotros</a></li>
+								<li><a href="#">Productos</a>
+									<ul class="sub-menu">
+										<li><a href="">Lacteos</a></li>
+										<li><a href="">Frutas</a></li>
+										<li><a href="">Verduras</a></li>
+										<li><a href="">Otros</a></li>
+										{%if user.is_staff%}
+										<li><a href="{%url 'Agregar' %}">Añadir Producto</a></li>
+										<li><a href="">Editar Producto</a></li>
+										<li><a href="{%url 'StockA' %}">Stock Activo</a></li>
+										
+
+										{%endif%}
+										
+									</ul>
+								</li>
+								<li><a href="">Nuestros Proveedores</a>
+									<ul class="sub-menu">
+											<li><a href="">¿Quienes son?</a></li>
+										{%if user.is_staff %}
+										<li><a href="">Editar Proveedores</a></li>
+										<li><a href="">Añadir Proveedores</a></li>
+										{%endif%}
+									</ul>
+								</li>
+								<li><a href="">Comprar</a></li>
+
+								<li><a href="" class="fas fa-user-circle"></a>
+									<ul class="sub-menu">
+										<li><a href="">Editar Usuario</a></li>
+										<li> <form action="{% url 'Logout' %}" method="POST">
+												{% csrf_token %}
+												<button type="submit">
+													<i class="fas fa-sign-out-alt">Logout</i></button>    
+											</form>
+										
+										</li>
+									</ul>
+								</li>
+								<li>
+									<div class="header-icons">
+										
+									</div>
+								</li>
+								{%endif%}
+							</ul>
+						</nav>
+						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<div class="mobile-menu"></div>
+						<!-- menu end -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end header -->
+
+	<!-- search area -->
+	<div class="search-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close"></i></span>
+					<div class="search-bar">
+						<div class="search-bar-tablecell">
+							<h3>Search For:</h3>
+							<input type="text" placeholder="Keywords">
+							<button type="submit">Search <i class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end search area -->
+	
+
+	
+	<!-- features list section -->
+	<div class="list-section pt-80 pb-80" style="background-color: black;">
+		<div class="container">
+
+		</div>
+	</div>
+	<!-- end features list section -->
+	
+	<!-- product section -->
+	<div class="product-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">	
+						<h3><span class="orange-text">Nuestras</span> Verduras</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/berenjena.png' %}" alt=""></a>
+						</div>
+						<h3>Berenjena</h3>
+						<p class="product-price"><span>Per Kg</span> 85$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/tomate.png' %}" alt=""></a>
+						</div>
+						<h3>Tomate Americano</h3>
+						<p class="product-price"><span>Per Kg</span> 70$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/pepino.jpg' %}" alt=""></a>
+						</div>
+						<h3>Pepino</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/lechuga.jpg' %}" alt=""></a>
+						</div>
+						<h3>Lechuga</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/rucula2.jpg' %}" alt=""></a>
+						</div>
+						<h3>Rucula</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/esparragos.jpeg' %}" alt=""></a>
+						</div>
+						<h3>Esparragos</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/acelga.png' %}" alt=""></a>
+						</div>
+						<h3>Acelga</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/espinaca.jpg' %}" alt=""></a>
+						</div>
+						<h3>Espinaca</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/col.jpg' %}" alt=""></a>
+						</div>
+						<h3>Col</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/pimientorojo.jpg' %}" alt=""></a>
+						</div>
+						<h3>Pimiento Rojo</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/pimientogreen.jpg' %}" alt=""></a>
+						</div>
+						<h3>Pimiento Verde</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="container">
+					<div class="row">
+						<div class="col-lg-8 offset-lg-2 text-center">
+							<div class="section-title">	
+								<h3><span class="orange-text">Nuestras</span>Frutas</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+							</div>
+						</div>
+					</div>
+			</div>
+
+
+			<div class="row">		
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/manzanaroja.jpeg' %}" alt=""></a>
+						</div>
+						<h3>Manzana Roja</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/manzanaverde.jpeg' %}" alt=""></a>
+						</div>
+						<h3>Manzana Verde</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/naranja.jpeg' %}" alt=""></a>
+						</div>
+						<h3>Naranja Importada</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/banana.jpeg' %}" alt=""></a>
+						</div>
+						<h3>Banana Ecuador</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/sandia.jpg' %}" alt=""></a>
+						</div>
+						<h3>Sandia</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/granada.jpeg' %}" alt=""></a>
+						</div>
+						<h3>Granada Importada</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/cereza.jpeg' %}" alt=""></a>
+						</div>
+						<h3>Cereza</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/frutilla.jpeg' %}" alt=""></a>
+						</div>
+						<h3>Frutilla</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/frambuesa.jpg' %}" alt=""></a>
+						</div>
+						<h3>Frambuesa</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{%static 'Tienda/assets/img/products/kiwi.jpeg' %}" alt=""></a>
+						</div>
+						<h3>Kiwi</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end product section -->
+	
+	<!-- cart banner section -->
+	<section class="cart-banner pt-100 pb-100">
+    	<div class="container">
+        	<div class="row clearfix">
+            	
+            </div>
+        </div>
+    </section>
+    <!-- end cart banner section -->
+
+
+	<!-- testimonail-section -->
+	<div class="testimonail-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1 text-center">
+					<div class="testimonial-sliders">
+						<div class="single-testimonial-slider">
+							<div class="client-avater">
+								<img src="" alt="">
+							</div>
+							<div class="client-meta">
+								<h3>Saira Hakim <span>Local shop owner</span></h3>
+								<p class="testimonial-body">
+									" Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
+								</p>
+								<div class="last-icon">
+									<i class="fas fa-quote-right"></i>
+								</div>
+							</div>
+						</div>
+						<div class="single-testimonial-slider">
+							<div class="client-avater">
+								<img src="">
+							<div class="client-meta">
+								<h3>David Niph <span>Local shop owner</span></h3>
+								<p class="testimonial-body">
+									" Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
+								</p>
+								<div class="last-icon">
+									<i class="fas fa-quote-right"></i>
+								</div>
+							</div>
+						</div>
+						<div class="single-testimonial-slider">
+							<div class="client-avater">
+								<img src="" alt="">
+							</div>
+							<div class="client-meta">
+								<h3>Jacob Sikim <span>Local shop owner</span></h3>
+								<p class="testimonial-body">
+									" Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
+								</p>
+								<div class="last-icon">
+									<i class="fas fa-quote-right"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end testimonail-section -->
+}
+	<!-- advertisement section -->
+	<div class="abt-section mb-150">
+		<div class="container">
+			<div class="row">
+				
+			</div>
+		</div>
+	</div>
+	<!-- end advertisement section -->
+
+
+	<!-- footer -->
+	<div class="footer-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box about-widget">
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box get-in-touch">
+						<h2 class="widget-title">Donde Encontrarnos</h2>
+						<ul>
+							<li>34/8, East Hukupara, New Delhi, India.</li>
+							<li>support@Verdeboutique.com</li>
+							<li>+00 111 222 3333</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box pages">
+					<img src="{%static 'Tienda/assets/img/GreenFruitLogo4.png' %}">
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box subscribe">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end footer -->
+
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+					<div class="social-icons">
+						<ul>
+							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+			</div>
+		</div>
+	</div>
+	<!-- end copyright -->
+	
+	
+
+</body>
+</html>
