@@ -79,8 +79,8 @@
 	  
 	  @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 	  body{
-		background: -webkit-linear-gradient(left, #25c481, #25b7c4);
-		background: linear-gradient(to right, #25c481, #25b7c4);
+		background: -webkit-linear-gradient(left, #000000, #010e0f);
+		background: linear-gradient(to right, #01351f, #000b0c);
 		font-family: 'Roboto', sans-serif;
 	  }
 	  section{
@@ -186,18 +186,7 @@
 	<!-- search area -->
 	<div class="search-area">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<span class="close-btn"><i class="fas fa-window-close"></i></span>
-					<div class="search-bar">
-						<div class="search-bar-tablecell">
-							<h3>Search For:</h3>
-							<input type="text" placeholder="Keywords">
-							<button type="submit">Search <i class="fas fa-search"></i></button>
-						</div>
-					</div>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 	<!-- end search arewa -->
@@ -205,14 +194,7 @@
 	<!-- breadcrumb-section -->
 	<div class="breadcrumb-section breadcrumb-bg">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="breadcrumb-text">
-						<p>Fresh and Organic</p>
-						<h1>Cart</h1>
-					</div>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 	<!-- end breadcrumb section -->
@@ -222,7 +204,7 @@
 	<div class="tbl-header">
 	  <table cellpadding="0" cellspacing="0" border="0">
 		<thead>
-	{% for n in productos %}
+	
 		  <tr>
 			<th>Nombre</th>
 			<th>Precio</th>
@@ -236,6 +218,7 @@
 	<div class="tbl-content">
 	  <table cellpadding="0" cellspacing="0" border="0">
 		<tbody>
+	{% for n in productos %}
 		  <tr>
 			<td class="product-name">{{n.nombre}}</td>
 			<td class="product-name">{{n.precio}}</td>
@@ -348,26 +331,7 @@
 	</div>
 	<!-- end copyright -->
 	
-	<!-- jquery -->
-	<script src="assets/js/jquery-1.11.3.min.js"></script>
-	<!-- bootstrap -->
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<!-- count down -->
-	<script src="assets/js/jquery.countdown.js"></script>
-	<!-- isotope -->
-	<script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
-	<!-- waypoints -->
-	<script src="assets/js/waypoints.js"></script>
-	<!-- owl carousel -->
-	<script src="assets/js/owl.carousel.min.js"></script>
-	<!-- magnific popup -->
-	<script src="assets/js/jquery.magnific-popup.min.js"></script>
-	<!-- mean menu -->
-	<script src="assets/js/jquery.meanmenu.min.js"></script>
-	<!-- sticker js -->
-	<script src="assets/js/sticker.js"></script>
-	<!-- main js -->
-	<script src="assets/js/main.js"></script>
+
 
 </body>
 </html>

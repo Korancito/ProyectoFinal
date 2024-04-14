@@ -24,8 +24,25 @@ urlpatterns = [
     
     # ---------- Manejo de Modelos ---------
     
-    path('StockA', views.ver_A, name='StockA'),
+    # ---- Productos ---
+    path('StockActivo', views.ver_p, name='StockA'),
     path('agregar_producto', views.agregar_producto, name='Agregar'),
+    
+    # --- Categorias ---
+    
+    path('Categorias', views.ver_cat, name='Cats'),
+    path('AddCat', views.agregar_cat, name = 'AddCat'),
+    
+    # --- Proovedores ---
+    
+    path('Proveedores', views.ver_p, name='Proveedor'),
+    path('AddProv', views.agregar_prov, name='AddProv'),
+    
+    # --- Staff ---
+    
+    path('Staff', views.ver_s, name='SeeStaff'),
+    path('AddStf', views.agregar_s, name='AddStf'),
+    
     
 ]
 

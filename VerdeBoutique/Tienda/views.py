@@ -89,21 +89,18 @@ def aboutus(request):
 # ----------------- Staff Only ------------------
 # ----------------- Manejo de Modelos -----------
 
+# ------------ Productos -------------
 
 @staff_member_required
-def ver_A(request):
+def ver_p(request):
     productos = Productos.objects.all()
     dicc = {"productos": productos}
-    plantilla = loader.get_template("StockA.html")
+    plantilla = loader.get_template("#2StockActivo.html")
     documento = plantilla.render(dicc)
     return HttpResponse(documento)
-    
-    
 
 @staff_member_required
 def agregar_producto(request):
-    
-    
     if request.method == "POST":
        
         formulario = ProductForm(request.POST)
@@ -133,4 +130,36 @@ def agregar_producto(request):
     categorias = Categoria.objects.all()
     context = {"formulario":formulario, "categorias":categorias}
     
-    return render(request, "agregar_producto.html", context)
+    return render(request, "#1AddProd.html", context)
+
+
+# -------------- Staff --------------
+def ver_s(request):
+    pass
+
+def agregar_s(request):
+    pass
+
+
+# --------------- Proveedores ------------
+
+def ver_prov(request):
+    pass
+
+def agregar_prov(request):
+    pass
+
+
+# ------------- Categorias ----------------
+
+def ver_cat(request):
+    categorias = Categoria.objects.all()
+    dicc = {"categorias": categorias}
+    plantilla = loader.get_template("#4CategoriaActiva.html")
+    documento = plantilla.render(dicc)
+    return HttpResponse(documento)
+
+
+def agregar_cat(request):
+    pass
+
