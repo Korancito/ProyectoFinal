@@ -35,3 +35,5 @@ class ProductForm(forms.ModelForm):
         required=False
     )
     
+class CatForm(forms.Form):
+    nombre = forms.CharField(max_length=100)

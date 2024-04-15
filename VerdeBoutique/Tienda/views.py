@@ -44,7 +44,7 @@ def register(request):
         if form.is_valid():
             print("Valid", form)
             form.save()
-            return render(request, "register.html")
+            return redirect('Login')
             
         else:
             return render(request, "wrongdata.html")
@@ -161,5 +161,14 @@ def ver_cat(request):
 
 
 def agregar_cat(request):
-    pass
-
+    
+    if request.method == 'POST':
+        
+        form = CatForm(request.POST)
+        if form.is_valid():
+            datos = form.cleaned_data
+            formulario = Categoria(nombre=datos["nombre"])
+            formulario.save()
+            return redirect('Cats')
+        
+    return render(request, "#3AddCat.html")
