@@ -159,7 +159,7 @@
 								</li>
 								<li><a href="">Nuestros Proveedores</a>
 									<ul class="sub-menu">
-										<li><a href="">Editar Proveedores</a></li>
+										<li><a href="{%url 'Proveedor' %}">Proveedores</a></li>
 										<li><a href="">Añadir Proveedores</a></li>
 										
 									</ul>
@@ -204,7 +204,10 @@
 	<div class="tbl-header">
 	  <table cellpadding="0" cellspacing="0" border="0">
 		<thead>
+		  <tr>
 			<a href="{%url 'Cats'%}" class="bordered-btn">Categorias</a>
+			<a href="{%url 'Agregar'%}" class="bordered-btn">Agregar Producto</a>
+		  </tr>
 		  <tr>
 			<th>Nombre</th>
 			<th>Precio</th>

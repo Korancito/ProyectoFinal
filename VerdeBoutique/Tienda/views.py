@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from Tienda.models import Categoria, Productos
+from Tienda.models import Categoria, Productos, Proveedor, Staff
 from django.http import HttpResponse
 from django.template import loader
 from Tienda.forms import *
@@ -59,8 +59,6 @@ def register(request):
 def wrongdata(request):
     return redirect('Wrong')
 
-
-
 # ---------------- Navegacion Simple ------------
 
 def intro(request):
@@ -69,12 +67,17 @@ def intro(request):
 def home(request):
     return render(request, "Home.html")
 
-
 def previewproduct(request):
     return render(request, "PreviewProducts.html")
 
 def aboutus(request):
     return render(request, "Nosotros.html")
+
+def nosotroslog(request):
+    return render(request, "#10Nosotros.html")
+
+def productslog(request):
+    return render(request, "#11Products.html")
 
 
 
@@ -132,26 +135,65 @@ def agregar_producto(request):
     
     return render(request, "#1AddProd.html", context)
 
+def edit_p(request):
+    pass
 
+def del_p(request):
+    pass
 # -------------- Staff --------------
+
+
+@staff_member_required
 def ver_s(request):
     pass
 
+@staff_member_required
 def agregar_s(request):
     pass
 
+def edit_s(request):
+    pass
+
+def del_s(request):
+    pass
 
 # --------------- Proveedores ------------
 
+
+@staff_member_required
 def ver_prov(request):
+    proveedores = Proveedor.objects.all()
+    dicc = {"proveedores": proveedores}
+    plantilla = loader.get_template("#6ProveedorList.html")
+    documento = plantilla.render(dicc)
+    return HttpResponse(documento)
+
+@staff_member_required
+def agregar_prov(request):
+    
+    if request.method == 'POST':
+        
+        formP = ProvForm(request.POST)
+        if formP.is_valid():
+            datos = formP.cleaned_data
+            formprov = Proveedor(razonsocial=datos["razonsocial"], nombre=datos["nombre"], rut=datos["rut"], giro=datos["giro"])
+            formprov.save()
+            return redirect('Proveedor')
+        
+    return render(request, "#5AddProv.html")
+
+
+def edit_prov(request):
     pass
 
-def agregar_prov(request):
+def del_prov(request):
     pass
 
 
 # ------------- Categorias ----------------
 
+
+@staff_member_required
 def ver_cat(request):
     categorias = Categoria.objects.all()
     dicc = {"categorias": categorias}
@@ -159,7 +201,7 @@ def ver_cat(request):
     documento = plantilla.render(dicc)
     return HttpResponse(documento)
 
-
+@staff_member_required
 def agregar_cat(request):
     
     if request.method == 'POST':
@@ -172,3 +214,10 @@ def agregar_cat(request):
             return redirect('Cats')
         
     return render(request, "#3AddCat.html")
+
+def edit_cat(request):
+    pass
+
+def del_cat(request):
+    pass
+

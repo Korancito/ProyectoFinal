@@ -44,7 +44,7 @@ class Productos(models.Model):
     
     
     def __str__(self):
-        return self.nombre, self.cantidad, self.precio, self.precio_costo, self.categoria
+        return f"{self.nombre}, {self.cantidad}, {self.precio}, {self.precio_costo}, {self.categoria}"
 
 
 # ------------- Staff

@@ -37,3 +37,11 @@ class ProductForm(forms.ModelForm):
     
 class CatForm(forms.Form):
     nombre = forms.CharField(max_length=100)
+
+
+class ProvForm(forms.Form):
+    razonsocial = forms.CharField(max_length=60)
+    nombre = forms.CharField(max_length=60)
+    rut = forms.IntegerField()
+    giro = forms.CharField(max_length=60)
+    

@@ -179,7 +179,7 @@
 								</li>
 								<li><a href="">Nuestros Proveedores</a>
 									<ul class="sub-menu">
-										<li><a href="{%url 'Proveedor' %}">Proveedores</a></li>
+										<li><a href="">Editar Proveedores</a></li>
 										<li><a href="">Añadir Proveedores</a></li>
 										
 									</ul>
@@ -206,18 +206,7 @@
 	<!-- search area -->
 	<div class="search-area">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<span class="close-btn"><i class="fas fa-window-close"></i></span>
-					<div class="search-bar">
-						<div class="search-bar-tablecell">
-							<h3>Search For:</h3>
-							<input type="text" placeholder="Keywords">
-							<button type="submit">Search <i class="fas fa-search"></i></button>
-						</div>
-					</div>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 	<!-- end search arewa -->
@@ -230,25 +219,29 @@
 
 	<!-- cart -->
 		<div>
-			<h1><span class="blue"></span>Categorias<span class="blue"></span> <span class="yellow"></pan></h1>
+			<h1><span class="blue"></span>Proveedores<span class="blue"></span> <span class="yellow"></pan></h1>
 			
 			
 			<table class="container">
 				<thead>
+					<tr><th><a href="{%url 'AddProv' %}" class="bordered-btn" style="position: relative;">Añadir Proveedor</a></th></tr>
 					<tr>
-						<th><h1>Id</h1></th>
-						<th><h1>Nombre</h1></th>
-						<th><h1></h1></th>
-						<th><h1></h1></th>
-						<th><a href="{%url 'AddCat' %}" class="bordered-btn" style="position: relative;">Añadir Categoria</a></th>
 
+						<th><h1>Razon Social</h1></th>
+						<th><h1>Nombre</h1></th>
+						<th><h1>Rut</h1></th>
+						<th><h1>Giro</h1></th>
+		
 					</tr>
+					
 				</thead>
 				<tbody>
-				{%for n in categorias%}
+				{%for n in proveedores%}
 					<tr>
-						<td>{{n.id}}</td>
+						<td>{{n.razonsocial}}</td>
 						<td>{{n.nombre}}</td>
+						<td>{{n.rut}}</td>
+						<td>{{n.giro}}</td>
 						<td><a href="" class="bordered-btn" style="position: relative;">Editar</a></td>
 						<td><a href="" class="bordered-btn" style="position: relative;">Eliminar</a></td>
 					</tr>
