@@ -29,22 +29,22 @@ urlpatterns = [
     # ---- Productos ---
     path('StockActivo', views.ver_p, name='StockA'),
     path('agregar_producto', views.agregar_producto, name='Agregar'),
-    path('editprod', views.edit_p, name='EdtPro'),
-    path('delprod', views.del_p, name='DelProd'),
+    path('editprod/<int:id>', views.edit_p, name='EdtPro'),
+    path('delprod/<int:id>', views.del_p, name='DelProd'),
     
     # --- Categorias ---
     
     path('Categorias', views.ver_cat, name='Cats'),
     path('AddCat', views.agregar_cat, name = 'AddCat'),
-    path('editCat', views.edit_cat, name='EdtCat'),
-    path('delCat', views.del_cat, name='DelCat'),
+    path('editCat/<int:id>', views.edit_cat, name='EdtCat'),
+    path('delCat/<int:id>', views.del_cat, name='DelCat'),
     
     # --- Proovedores ---
     
     path('Proveedores', views.ver_prov, name='Proveedor'),
     path('AddProv', views.agregar_prov, name='AddProv'),
-    path('editProv', views.edit_prov, name='EdtProv'),
-    path('delProv', views.del_prov, name='DelProv'),
+    path('editProv/<int:id>', views.edit_prov, name='EdtProv'),
+    path('delProv/<int:id>', views.del_prov, name='DelProv'),
     
     # --- Staff ---
     

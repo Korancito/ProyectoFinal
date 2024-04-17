@@ -9,7 +9,7 @@
 	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
 	<!-- title -->
-	<title>Agregar Producto</title>
+	<title>Editar Producto</title>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="{%static 'Tienda/assets/img/favicon.png' %}">
@@ -263,6 +263,7 @@
 											<li><a href="{%url 'AddProv' %}">Añadir Proveedores</a></li>
 											<li><a href="{%url 'Proveedor' %}">Proveedores</a></li>
 											
+											
 										</ul>
 									</li>
 									<li><a href=""></a></li>
@@ -292,10 +293,10 @@
 
 	<!-- end breadcrumb section -->
 	<div class="testbox">
-		<form action="agregar_producto" method="POST">
+		<form action="{%url 'EdtPro' id=producto.id %}" method="POST">
 			{%csrf_token%}
 		  <div class="banner">
-			<h1>Nuevo Producto</h1>
+			<h1>Editar Producto</h1>
 		  </div>
 		  <br/>
 		  <p>
@@ -322,14 +323,7 @@
 			  <input id="id_precio_costo" type="text" step="0.01"  name="precio_costo" required/>
 			</div>
 		  </div>
-		  <div class="item">
-			<p>Categoria</p>
-			<select name="categorias">
-				{% for categoria in categorias %}
-					<option value="{{ categoria.pk }}">{{ categoria.nombre }}</option>
-				{% endfor %}
-			</select>
-		  </div>
+		
 		  <div class="item">
 			<label for="visit">Comentarios Especiales</label>
 			<textarea id="" rows="3"></textarea>

@@ -9,7 +9,7 @@
 	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
 	<!-- title -->
-	<title>Agregar Producto</title>
+	<title>Editar Proveedor</title>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="{%static 'Tienda/assets/img/favicon.png' %}">
@@ -263,6 +263,7 @@
 											<li><a href="{%url 'AddProv' %}">Añadir Proveedores</a></li>
 											<li><a href="{%url 'Proveedor' %}">Proveedores</a></li>
 											
+											
 										</ul>
 									</li>
 									<li><a href=""></a></li>
@@ -292,10 +293,10 @@
 
 	<!-- end breadcrumb section -->
 	<div class="testbox">
-		<form action="agregar_producto" method="POST">
+		<form action="AddProv" method="POST">
 			{%csrf_token%}
 		  <div class="banner">
-			<h1>Nuevo Producto</h1>
+			<h1>Editar Proveedor</h1>
 		  </div>
 		  <br/>
 		  <p>
@@ -306,34 +307,21 @@
 		  <br/>
 		  <div class="colums">
 			<div class="item">
-			  <label for="Nombre"> Nombre de Producto<span>*</span></label>
-			  <input id="id_nombre" type="text" name="nombre" class="from-input" required/>
+			  <label for="Razon Social"> Razon Social<span>*</span></label>
+			  <input id="id_razonsocial" type="text" name="razonsocial" class="from-input" required/>
 			</div>
 			<div class="item">
-			  <label for="Cantidad"> Cantidad a ingresar<span>*</span></label>
-			  <input id="id_cantidad" type="text" name="cantidad" class="from-input" required/>
+				<label for="Nombre"> Nombre<span>*</span></label>
+				<input id="id_nombre" type="text" name="nombre" class="from-input" required/>
 			</div>
 			<div class="item">
-			  <label for="Precio">Precio Venta Publico<span>*</span></label>
-			  <input id="id_precio" type="text" name="precio" step="0.01" required/>
-			</div>
+				<label for="Rut"> Rut<span>*</span></label>
+				<input id="id_rut" type="number" name="rut" class="from-input" required/>
+			</div>  
 			<div class="item">
-			  <label for="Precio Costo">Costo Origen<span>*</span></label>
-			  <input id="id_precio_costo" type="text" step="0.01"  name="precio_costo" required/>
+				<label for="Giro"> Giro<span>*</span></label>
+				<input id="id_giro" type="text" name="giro" class="from-input" required/>
 			</div>
-		  </div>
-		  <div class="item">
-			<p>Categoria</p>
-			<select name="categorias">
-				{% for categoria in categorias %}
-					<option value="{{ categoria.pk }}">{{ categoria.nombre }}</option>
-				{% endfor %}
-			</select>
-		  </div>
-		  <div class="item">
-			<label for="visit">Comentarios Especiales</label>
-			<textarea id="" rows="3"></textarea>
-		  </div>
 		  <div class="btn-block">
 			<button type="submit" href="/">Finalizar</button>
 		  </div>

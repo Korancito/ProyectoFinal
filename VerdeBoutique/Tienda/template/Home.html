@@ -60,7 +60,14 @@
 								<li class="current-list-item"><a href="">Home</a>
 									
 								</li>
-								<li><a href="{%url 'NosL' %}">Nosotros</a></li>
+								<li><a href="{%url 'NosL' %}">Nosotros</a>
+									<ul class="sub-menu">
+										<li><a href="">Staff</a></li>
+										{%if user.is_staff%}
+										<li><a href="">Añadir Staff</a></li>
+										{%endif%}
+									</ul>
+								</li>
 								<li><a href="{%url 'PrdL'%}">Productos</a>
 									<ul class="sub-menu">
 										<li><a href="">Lacteos</a></li>
@@ -69,10 +76,8 @@
 										<li><a href="">Otros</a></li>
 										{%if user.is_staff%}
 										<li><a href="{%url 'Agregar' %}">Añadir Producto</a></li>
-										<li><a href="">Editar Producto</a></li>
 										<li><a href="{%url 'StockA' %}">Stock Activo</a></li>
-										
-
+										<li><a href="{%url 'Cats' %}">Categorias</a></li>
 										{%endif%}
 										
 									</ul>
@@ -82,7 +87,7 @@
 											<li><a href="">¿Quienes son?</a></li>
 										{%if user.is_staff %}
 										<li><a href="{%url 'Proveedor' %}">Proveedores</a></li>
-										<li><a href="">Añadir Proveedores</a></li>
+										<li><a href="{%url 'Agregar' %}">Añadir Proveedores</a></li>
 										{%endif%}
 									</ul>
 								</li>

@@ -147,61 +147,62 @@
 	}
 </style>
 	
-	<!-- header -->
-	<div class="top-header-area" id="sticker">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 col-sm-12 text-center">
-					<div class="main-menu-wrap">
-						<!-- logo -->
-						<div class="site-logo">
-							<a href="index.html">
-								<img src="{% static 'Tienda/assets/img/GreenFruitLogo4.png' %}" alt="">
-							</a>
+		<!-- header -->
+		<div class="top-header-area" id="sticker" style="background-color:antiquewhite; position:relative">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-sm-12 text-center">
+						<div class="main-menu-wrap">
+							<!-- logo -->
+							<div class="site-logo" style="position:inherit;">
+								<a href="">
+									<img src="{% static 'Tienda/assets/img/GreenFruitLogo2.png' %}" alt="">
+								</a>
+							</div>
+							<!-- logo -->
+	
+							<!-- menu start -->
+							<nav class="main-menu" style="display: flexbox; background-color:antiquewhite">
+								<ul>
+									<li class="current-list-item"><a href="{%url 'Home'%}">Home</a>
+									
+									</li>
+									<li><a href=""></a></li>
+									<li><a href="" style="color: chocolate;">Productos</a>
+										<ul class="sub-menu">
+											
+											<li><a href="{%url 'Agregar' %}">Añadir Producto</a></li>
+											<li><a href="{%url 'StockA' %}">Stock Activo</a></li>
+											<li><a href="{%url 'Cats' %}">Categoria</a></li>
+											
+										</ul>
+									</li>
+									<li><a href="" style="color: chocolate;">Nuestros Proveedores</a>
+										<ul class="sub-menu">
+											<li><a href="{%url 'AddProv' %}">Añadir Proveedores</a></li>
+											<li><a href="{%url 'Proveedor' %}">Proveedores</a></li>
+											
+											
+										</ul>
+									</li>
+									<li><a href=""></a></li>
+									<li><a href=""></a></li>
+									<li>
+										<div class="header-icons">
+											<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+										</div>
+									</li>
+								</ul>
+							</nav>
+							<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+							<div class="mobile-menu"></div>
+							<!-- menu end -->
 						</div>
-						<!-- logo -->
-
-						<!-- menu start -->
-						<nav class="main-menu">
-							<ul>
-								<li class="current-list-item"><a href="{%url 'Home'%}">Home</a>
-								
-								</li>
-								<li><a href=""></a></li>
-								<li><a href="">Productos</a>
-									<ul class="sub-menu">
-										
-										<li><a href="{%url 'Agregar' %}">Añadir Producto</a></li>
-										<li><a href="">Editar Producto</a></li>
-										<li><a href="{%url 'StockA' %}">Stock Activo</a></li>
-										
-									</ul>
-								</li>
-								<li><a href="">Nuestros Proveedores</a>
-									<ul class="sub-menu">
-										<li><a href="{%url 'Proveedor' %}">Proveedores</a></li>
-										<li><a href="">Añadir Proveedores</a></li>
-										
-									</ul>
-								</li>
-								<li><a href=""></a></li>
-								<li><a href=""></a></li>
-								<li>
-									<div class="header-icons">
-										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-									</div>
-								</li>
-							</ul>
-						</nav>
-						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-						<div class="mobile-menu"></div>
-						<!-- menu end -->
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- end header -->
+		<!-- end header -->
 
 	<!-- search area -->
 	<div class="search-area">
@@ -249,8 +250,8 @@
 					<tr>
 						<td>{{n.id}}</td>
 						<td>{{n.nombre}}</td>
-						<td><a href="" class="bordered-btn" style="position: relative;">Editar</a></td>
-						<td><a href="" class="bordered-btn" style="position: relative;">Eliminar</a></td>
+						<td><a href="{%url 'EdtCat' n.id%}" class="bordered-btn" style="position: relative;">Editar</a></td>
+						<td><a href="{%url 'DelCat' n.id%}" class="bordered-btn" style="position: relative;">Eliminar</a></td>
 					</tr>
 				{%endfor%}
 				</tbody>

@@ -135,11 +135,34 @@ def agregar_producto(request):
     
     return render(request, "#1AddProd.html", context)
 
-def edit_p(request):
-    pass
+def edit_p(request, id):
+    producto = Productos.objects.get(id=id)
+    
+    if request.method == "POST":
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            datos = form.cleaned_data
+            producto.nombre = datos['nombre']
+            producto.cantidad = datos['cantidad']
+            producto.precio = datos['precio']
+            producto.precio_costo = datos['precio_costo']
+            producto.save()
+            productos = Productos.objects.all()
+            
+            return render(request, "#2StockActivo.html", {"productos":productos} )
+    
+    else:
+        form = ProductForm(initial={'nombre':producto.nombre, 'cantidad':producto.cantidad, 'precio':producto.precio, 'precio_costo':producto.precio_costo})
+    
+    return render(request, "#9EditProd.html", {'form':form, 'producto':producto})
+def del_p(request, id):
+    producto = Productos.objects.get(id=id)
+    producto.delete()
+    
+    productos = Productos.objects.all()
+    return render(request, "#2StockActivo.html", {"productos": productos})
 
-def del_p(request):
-    pass
+
 # -------------- Staff --------------
 
 
@@ -183,11 +206,33 @@ def agregar_prov(request):
     return render(request, "#5AddProv.html")
 
 
-def edit_prov(request):
-    pass
+def edit_prov(request,id):
+    proveedor = Proveedor.objects.get(id=id)
+    
+    if request.method == "POST":
+        form = ProvForm(request.POST)
+        if form.is_valid():
+            datos = form.cleaned_data
+            proveedor.razonsocial = datos['razonsocial']
+            proveedor.nombre = datos['nombre']
+            proveedor.rut = datos['rut']
+            proveedor.giro = datos['giro']
+            proveedor.save()
+            proveedores = Proveedor.objects.all()
+            
+            return render(request, "#2StockActivo.html", {"proveedores":proveedores} )
+    
+    else:
+        form = ProvForm(initial={'razonsocial':proveedor.razonsocial, 'nombre':proveedor.nombre, 'rut':proveedor.rut, 'giro':proveedor.giro})
+    
+    return render(request, "#12EditProv.html", {'form':form, 'proveedor':proveedor})
 
-def del_prov(request):
-    pass
+def del_prov(request,id):
+    proveedor = Proveedor.objects.get(id=id)
+    proveedor.delete()
+    
+    proveedores = Proveedor.objects.all()
+    return render(request, "#6ProveedorList.html", {"proveedores":proveedores})
 
 
 # ------------- Categorias ----------------
@@ -215,9 +260,30 @@ def agregar_cat(request):
         
     return render(request, "#3AddCat.html")
 
-def edit_cat(request):
-    pass
+def edit_cat(request, id):
+    categoria = Categoria.objects.get(id=id)
+    
+    if request.method == "POST":
+        form = CatForm(request.POST)
+        if form.is_valid():
+            datos = form.cleaned_data
+            categoria.nombre = datos['nombre']
+            categoria.save()
+            categorias = Categoria.objects.all()
+            
+            return render(request, "#4CategoriaActiva.html", {"categorias":categorias} )
+    
+    else:
+        form = CatForm(initial={'nombre':categoria.nombre})
+    
+    return render(request, "#13EditCat.html", {'form':form, 'categoria':categoria})
 
-def del_cat(request):
-    pass
+def del_cat(request, id):
+    categoria = Categoria.objects.get(id=id)
+    categoria.delete()
+    
+    categorias = Categoria.objects.all()
+    return render(request, "#4CategoriaActiva.html", {"categorias":categorias})
 
+
+    
