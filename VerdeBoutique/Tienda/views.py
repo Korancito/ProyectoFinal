@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from Tienda.models import Categoria, Productos, Proveedor, Staff
+from Tienda.models import Categoria, Productos, Proveedor, Staff, Avatar
 from django.http import HttpResponse
 from django.template import loader
 from Tienda.forms import *
@@ -27,6 +27,7 @@ def login_request(request):
             
             if user is not None:
                 login(request, user)
+                Avatar.objects.filter(user=request.user.id)
                 return redirect('Home')
             
             else:
@@ -52,6 +53,48 @@ def register(request):
     else:
         form = CustomUserCreationForm()
         return render(request, "register.html", {"form":form})
+
+
+
+
+
+#------------------EditUser ----------------------
+
+@login_required
+def editarPerfil(request):
+    
+    usuario = request.user
+    
+    if request.method == "POST":
+        
+        miform = UserEditForm(request.POST, request.FILES, instance=request.user)
+        
+        if miform.is_valid():
+            datos = miform.cleaned_data
+            usuario.username = datos['username']
+            usuario.first_name = datos['first_name']
+            usuario.last_name = datos['last_name']
+            usuario.email = datos['email']
+            
+            avatar_get= miform.cleaned_data.get('imagen')
+            
+            if avatar_get:
+                avatar = Avatar(user=usuario, imagen=avatar_get)
+                avatar.save()
+            
+            
+            usuario.save()                       
+            miform.save()
+            
+            return render(request,"Home.html")
+        
+    else:
+        miform = UserEditForm(instance=request.user)
+    
+    return render(request, "#14EdtPrf.html", {'miform':miform, 'usuario':usuario})
+
+
+
 
 
 # -------------- Errores ------------------------

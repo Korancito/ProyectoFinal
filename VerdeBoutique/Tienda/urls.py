@@ -9,7 +9,7 @@ urlpatterns = [
     path('', views.intro, name='First'),
     path('Preview/', views.previewproduct, name='Preview'),
     path('Nosotros/', views.aboutus, name='About'),
-    path('Home/', views.home, name='Home'),
+    path('Home', views.home, name='Home'),
     path('#10Nosotros/', views.nosotroslog, name='NosL'),
     path('#11Prductos/', views.productslog, name='PrdL'),
     
@@ -18,6 +18,10 @@ urlpatterns = [
     path('Login/', views.login_request, name='Login'),
     path('Register', views.register, name='Registro'),
     path('Logout', LogoutView.as_view(template_name='FirstPage.html'), name='Logout'),
+    
+    #------------ Perfil ---------------------
+    
+    path('EditarPerfil', views.editarPerfil, name='EdtPrf'),
     
     #----------- Errores --------------------
     

@@ -21,8 +21,6 @@ class Proveedor(models.Model):
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=100)
-    
-    
     objects = models.Manager()
     
     
@@ -62,3 +60,11 @@ class Staff(models.Model):
     def __str__(self):
         return self.nombre, self.apellido, self.status, self.contacto, self.email
     
+#---------------- Usuarios
+
+class Avatar(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to='avatars', null=True, blank=True)
+    
+    def __str__(self):
+        return f"{self.user} {self.imagen}"
