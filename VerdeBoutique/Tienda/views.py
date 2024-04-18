@@ -24,10 +24,10 @@ def login_request(request):
             passw = form.cleaned_data.get("password")
             
             user = authenticate(username=usuario, password=passw)
+            imagen = Avatar.objects.filter(uuser=request.user.id) #Para testear
             
             if user is not None:
-                login(request, user)
-                Avatar.objects.filter(user=request.user.id)
+                login(request, user, imagen) #Generamos la variable previa para que el login solicite imagen de user.id
                 return redirect('Home')
             
             else:
