@@ -24,10 +24,10 @@ def login_request(request):
             passw = form.cleaned_data.get("password")
             
             user = authenticate(username=usuario, password=passw)
+            imagen = Avatar.objects.filter(uuser=request.user.id) #Para testear
             
             if user is not None:
-                login(request, user)
-                Avatar.objects.filter(user=request.user.id)
+                login(request, user, imagen) #Generamos la variable previa para que el login solicite imagen de user.id
                 return redirect('Home')
             
             else:
@@ -35,6 +35,9 @@ def login_request(request):
             
         else:
             return render(request, "wrongdata.html")
+    
+    form = AuthenticationForm()
+    return render(request, "login.html", {"form":form})
     
     form = AuthenticationForm()
     return render(request, "login.html", {"form":form})
@@ -108,6 +111,7 @@ def intro(request):
     return render(request, "FirstPage.html")
 
 def home(request):
+    avatar_url = request.session.get('avatar_url')
     return render(request, "Home.html")
 
 def previewproduct(request):
