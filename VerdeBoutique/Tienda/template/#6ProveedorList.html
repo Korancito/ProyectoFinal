@@ -1,317 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-	{%load static%}
-	
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+{}{%extends '#2StockActivo.html' %}
+{%load static%}
 
-	<!-- title -->
-	<title>Stock Activo</title>
 
-	<!-- favicon -->
-	<link rel="shortcut icon" type="image/png" href="{%static 'Tienda/assets/img/favicon.png' %}">
-	<!-- google font -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
-	<!-- fontawesome -->
-	<link rel="stylesheet" href="{%static 'Tienda/assets/css/all.min.css' %}">
-	<!-- bootstrap -->
-	<link rel="stylesheet" href="{%static 'Tienda/assets/bootstrap/css/bootstrap.min.css' %}">
-	<!-- owl carousel -->
-	<link rel="stylesheet" href="{%static 'Tienda/assets/css/owl.carousel.css' %}">
-	<!-- magnific popup -->
-	<link rel="stylesheet" href="{%static 'Tienda/assets/css/magnific-popup.css' %}">
-	<!-- animate css -->
-	<link rel="stylesheet" href="{%static 'Tienda/assets/css/animate.css' %}">
-	<!-- mean menu css -->
-	<link rel="stylesheet" href="{%static 'Tienda/assets/css/meanmenu.min.css' %}">
-	<!-- main style -->
-	<link rel="stylesheet" href="{%static 'Tienda/assets/css/main.css' %}">
-	<!-- responsive -->
-	<link rel="stylesheet" href="{%static 'Tienda/assets/css/responsive.css' %}">
-</head>
-<body>
-<style>
-	@charset "UTF-8";
-	@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
-	
-	body {
-	  font-family: 'Open Sans', sans-serif;
-	  font-weight: 300;
-	  line-height: 1.42em;
-	  color:#A7A1AE;
-	  background-color:#1F2739;
-	}
-	
-	h1 {
-	  font-size:3em; 
-	  font-weight: 300;
-	  line-height:1em;
-	  text-align: center;
-	  color: #4DC3FA;
-	}
-	
-	h2 {
-	  font-size:1em; 
-	  font-weight: 300;
-	  text-align: center;
-	  display: block;
-	  line-height:1em;
-	  padding-bottom: 2em;
-	  color: #FB667A;
-	}
-	
-	h2 a {
-	  font-weight: 700;
-	  text-transform: uppercase;
-	  color: #FB667A;
-	  text-decoration: none;
-	}
-	
-	.blue { color: #185875; }
-	.yellow { color: #FFF842; }
-	
-	.container th h1 {
-		  font-weight: bold;
-		  font-size: 1em;
-	  text-align: left;
-	  color: #185875;
-	}
-	
-	.container td {
-		  font-weight: normal;
-		  font-size: 1em;
-	  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
-		   -moz-box-shadow: 0 2px 2px -2px #0E1119;
-				box-shadow: 0 2px 2px -2px #0E1119;
-	}
-	
-	.container {
-		  text-align: left;
-		  overflow: hidden;
-		  width: 80%;
-		  margin: 0 auto;
-	  display: table;
-	  padding: 0 0 8em 0;
-	}
-	
-	.container td, .container th {
-		  padding-bottom: 2%;
-		  padding-top: 2%;
-	  padding-left:2%;  
-	}
-	
-	/* Background-color of the odd rows */
-	.container tr:nth-child(odd) {
-		  background-color: #323C50;
-	}
-	
-	/* Background-color of the even rows */
-	.container tr:nth-child(even) {
-		  background-color: #2C3446;
-	}
-	
-	.container th {
-		  background-color: #1F2739;
-	}
-	
-	.container td:first-child { color: #FB667A; }
-	
-	.container tr:hover {
-	   background-color: #464A52;
-	-webkit-box-shadow: 0 6px 6px -6px #0E1119;
-		   -moz-box-shadow: 0 6px 6px -6px #0E1119;
-				box-shadow: 0 6px 6px -6px #0E1119;
-	}
-	
-	.container td:hover {
-	  background-color: #FFF842;
-	  color: #403E10;
-	  font-weight: bold;
-	  
-	  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
-	  transform: translate3d(6px, -6px, 0);
-	  
-	  transition-delay: 0s;
-		  transition-duration: 0.4s;
-		  transition-property: all;
-	  transition-timing-function: line;
-	}
-	
-	@media (max-width: 800px) {
-	.container td:nth-child(4),
-	.container th:nth-child(4) { display: none; }
-	}
-</style>
-	
-		<!-- header -->
-		<div class="top-header-area" id="sticker" style="background-color:antiquewhite; position:relative">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 col-sm-12 text-center">
-						<div class="main-menu-wrap">
-							<!-- logo -->
-							<div class="site-logo" style="position:inherit;">
-								<a href="">
-									<img src="{% static 'Tienda/assets/img/GreenFruitLogo2.png' %}" alt="">
-								</a>
-							</div>
-							<!-- logo -->
-	
-							<!-- menu start -->
-							<nav class="main-menu" style="display: flexbox; background-color:antiquewhite">
-								<ul>
-									<li class="current-list-item"><a href="{%url 'Home'%}">Home</a>
-									
-									</li>
-									<li><a href=""></a></li>
-									<li><a href="" style="color: chocolate;">Productos</a>
-										<ul class="sub-menu">
-											
-											<li><a href="{%url 'Agregar' %}">Añadir Producto</a></li>
-											<li><a href="{%url 'StockA' %}">Stock Activo</a></li>
-											<li><a href="{%url 'Cats' %}">Categoria</a></li>
-											
-										</ul>
-									</li>
-									<li><a href="" style="color: chocolate;">Nuestros Proveedores</a>
-										<ul class="sub-menu">
-											<li><a href="{%url 'AddProv' %}">Añadir Proveedores</a></li>
-											<li><a href="{%url 'Proveedor' %}">Proveedores</a></li>
-											
-											
-										</ul>
-									</li>
-									<li><a href=""></a></li>
-									<li><a href=""></a></li>
-									<li>
-										<div class="header-icons">
-											<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-										</div>
-									</li>
-								</ul>
-							</nav>
-							<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-							<div class="mobile-menu"></div>
-							<!-- menu end -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- end header -->
+{%block titulo%}<title>Proveedores</title>{%endblock%}
 
-	<!-- search area -->
-	<div class="search-area">
-		<div class="container">
-			
-		</div>
-	</div>
-	<!-- end search arewa -->
-	
-	<!-- breadcrumb-section -->
-	<div class="breadcrumb-section breadcrumb-bg">
+
+
+
+{%block lista%}
+
+	<h1>Proveedores</h1>
+	<div class="tbl-header">
+	<table cellpadding="0" cellspacing="0" border="0">
+		<thead>
+		<tr>
+			<a href="{%url 'AddProv' %}" class="bordered-btn" style="position: relative;">Añadir Proveedor</a>
+		</tr>
+		<tr>
+
+			<th>Razon Social</th>
+			<th>Nombre</th>
+			<th>Rut</th>
+			<th>giro</th>
 		
+		</tr>
+		</thead>
+	</table>
 	</div>
-	<!-- end breadcrumb section -->
-
-	<!-- cart -->
-		<div>
-			<h1><span class="blue"></span>Proveedores<span class="blue"></span> <span class="yellow"></pan></h1>
-			
-			
-			<table class="container">
-				<thead>
-					<tr><th><a href="{%url 'AddProv' %}" class="bordered-btn" style="position: relative;">Añadir Proveedor</a></th></tr>
-					<tr>
-
-						<th><h1>Razon Social</h1></th>
-						<th><h1>Nombre</h1></th>
-						<th><h1>Rut</h1></th>
-						<th><h1>Giro</h1></th>
-		
-					</tr>
-					
-				</thead>
-				<tbody>
-				{%for n in proveedores%}
-					<tr>
-						<td>{{n.razonsocial}}</td>
-						<td>{{n.nombre}}</td>
-						<td>{{n.rut}}</td>
-						<td>{{n.giro}}</td>
-						<td><a href="{%url 'EdtProv' n.id%}" class="bordered-btn" style="position: relative;">Editar</a></td>
-						<td><a href="{%url 'DelProv' n.id%}" class="bordered-btn" style="position: relative;">Eliminar</a></td>
-					</tr>
-				{%endfor%}
-				</tbody>
-			</table>
-		</div>
-	
-	<!-- end logo carousel -->
-
-
-	<!-- footer -->
-	<div class="footer-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6">
-					<div class="footer-box about-widget">
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="footer-box get-in-touch">
-						<h2 class="widget-title">Donde Encontrarnos</h2>
-						<ul>
-							<li>34/8, East Hukupara, New Delhi, India.</li>
-							<li>support@Verdeboutique.com</li>
-							<li>+00 111 222 3333</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="footer-box pages">
-					<img src="{%static 'Tienda/assets/img/GreenFruitLogo4.png' %}">
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="footer-box subscribe">
-						
-					</div>
-				</div>
-			</div>
-		</div>
+	<div class="tbl-content">
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+	{% for n in proveedores %}
+		<tr>
+			<td class="product-name">{{n.razonsocial}}</td>
+			<td class="product-name">{{n.nombre}}</td>
+			<td class="product-name">{{n.rut}}</td>
+			<td class="product-name">{{n.giro}}</td>
+			<td><a href="{%url 'EdtProv' n.id%}" class="bordered-btn" style="position: relative;">Editar</a></td>
+			<td><a href="{%url 'DelProv' n.id%}" class="bordered-btn" style="position: relative;">Eliminar</a></td>
+		</tr>
+	{% endfor %}
+		</tbody>
+	</table>
 	</div>
-	<!-- end footer -->
+	</section>
 
-	
-	<!-- copyright -->
-	<div class="copyright">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
-				</div>
-				<div class="col-lg-6 text-right col-md-12">
-					<div class="social-icons">
-						<ul>
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end copyright -->
-	
-
-
-</body>
-</html>
+{%endblock%}

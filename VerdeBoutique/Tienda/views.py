@@ -39,8 +39,6 @@ def login_request(request):
     return render(request, "login.html", {"form":form})
 
 
-
-    
 def register(request):
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
@@ -55,10 +53,6 @@ def register(request):
     else:
         form = CustomUserCreationForm()
         return render(request, "register.html", {"form":form})
-
-
-
-
 
 #------------------EditUser ----------------------
 
@@ -100,10 +94,6 @@ def editarPerfil(request):
     
     return render(request, "#14EdtPrf.html", {'miform':miform, 'usuario':usuario})
 
-
-
-
-
 # -------------- Errores ------------------------
 
 def wrongdata(request):
@@ -114,8 +104,8 @@ def wrongdata(request):
 def intro(request):
     return render(request, "FirstPage.html")
 
+@login_required
 def home(request):
-    avatar_url = request.session.get('avatar_url')
     return render(request, "Home.html")
 
 def previewproduct(request):
@@ -124,34 +114,29 @@ def previewproduct(request):
 def aboutus(request):
     return render(request, "Nosotros.html")
 
+
+@login_required
 def nosotroslog(request):
     return render(request, "#10Nosotros.html")
 
+
+@login_required
 def productslog(request):
     return render(request, "#11Products.html")
 
 
 
+# -------------- Staff Only ------------------ #
 
+# ------------- Manejo de Modelos ----------- #
 
-
-
-
-
-
-
-# ----------------- Staff Only ------------------
-# ----------------- Manejo de Modelos -----------
-
-# ------------ Productos -------------
+# ------------ Productos ------------------- #
 
 @staff_member_required
 def ver_p(request):
-    productos = Productos.objects.all()
-    dicc = {"productos": productos}
-    plantilla = loader.get_template("#2StockActivo.html")
-    documento = plantilla.render(dicc)
-    return HttpResponse(documento)
+   productos = Productos.objects.all()
+   dicc = {'productos':productos}
+   return render(request, '#2StockActivo.html', dicc)
 
 @staff_member_required
 def agregar_producto(request):
@@ -186,6 +171,7 @@ def agregar_producto(request):
     
     return render(request, "#1AddProd.html", context)
 
+@staff_member_required
 def edit_p(request, id):
     producto = Productos.objects.get(id=id)
     
@@ -206,6 +192,8 @@ def edit_p(request, id):
         form = ProductForm(initial={'nombre':producto.nombre, 'cantidad':producto.cantidad, 'precio':producto.precio, 'precio_costo':producto.precio_costo})
     
     return render(request, "#9EditProd.html", {'form':form, 'producto':producto})
+
+@staff_member_required
 def del_p(request, id):
     producto = Productos.objects.get(id=id)
     producto.delete()
@@ -225,9 +213,11 @@ def ver_s(request):
 def agregar_s(request):
     pass
 
+@staff_member_required
 def edit_s(request):
     pass
 
+@staff_member_required
 def del_s(request):
     pass
 
@@ -238,9 +228,7 @@ def del_s(request):
 def ver_prov(request):
     proveedores = Proveedor.objects.all()
     dicc = {"proveedores": proveedores}
-    plantilla = loader.get_template("#6ProveedorList.html")
-    documento = plantilla.render(dicc)
-    return HttpResponse(documento)
+    return render(request, "#6ProveedorList.html", dicc)
 
 @staff_member_required
 def agregar_prov(request):
@@ -256,7 +244,7 @@ def agregar_prov(request):
         
     return render(request, "#5AddProv.html")
 
-
+@staff_member_required
 def edit_prov(request,id):
     proveedor = Proveedor.objects.get(id=id)
     
@@ -278,6 +266,7 @@ def edit_prov(request,id):
     
     return render(request, "#12EditProv.html", {'form':form, 'proveedor':proveedor})
 
+@staff_member_required
 def del_prov(request,id):
     proveedor = Proveedor.objects.get(id=id)
     proveedor.delete()
@@ -293,9 +282,7 @@ def del_prov(request,id):
 def ver_cat(request):
     categorias = Categoria.objects.all()
     dicc = {"categorias": categorias}
-    plantilla = loader.get_template("#4CategoriaActiva.html")
-    documento = plantilla.render(dicc)
-    return HttpResponse(documento)
+    return render(request, '#4CategoriaActiva.html', dicc)
 
 @staff_member_required
 def agregar_cat(request):
@@ -311,6 +298,7 @@ def agregar_cat(request):
         
     return render(request, "#3AddCat.html")
 
+@staff_member_required
 def edit_cat(request, id):
     categoria = Categoria.objects.get(id=id)
     
@@ -329,6 +317,7 @@ def edit_cat(request, id):
     
     return render(request, "#13EditCat.html", {'form':form, 'categoria':categoria})
 
+@staff_member_required
 def del_cat(request, id):
     categoria = Categoria.objects.get(id=id)
     categoria.delete()

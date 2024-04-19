@@ -9,7 +9,7 @@
 	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
 	<!-- title -->
-	{%block title%}<title>Stock Activo</title>{%endblock%}
+	<title>Stock Activo</title>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="{%static 'Tienda/assets/img/favicon.png' %}">
@@ -35,96 +35,116 @@
 </head>
 <body>
 <style>
-	h1{
-		font-size: 30px;
-		color: #fff;
-		text-transform: uppercase;
-		font-weight: 300;
-		text-align: center;
-		margin-bottom: 15px;
-	  }
-	  table{
-		width:100%;
-		table-layout: fixed;
-	  }
-	  .tbl-header{
-		background-color: rgba(255,255,255,0.3);
-	   }
-	  .tbl-content{
-		height:300px;
-		overflow-x:auto;
-		margin-top: 0px;
-		border: 1px solid rgba(255,255,255,0.3);
-	  }
-	  th{
-		padding: 20px 15px;
-		text-align: left;
-		font-weight: 500;
-		font-size: 12px;
-		color: #fff;
-		text-transform: uppercase;
-	  }
-	  td{
-		padding: 15px;
-		text-align: left;
-		vertical-align:middle;
-		font-weight: 300;
-		font-size: 12px;
-		color: #fff;
-		border-bottom: solid 1px rgba(255,255,255,0.1);
-	  }
+	@charset "UTF-8";
+	@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+	
+	body {
+	  font-family: 'Open Sans', sans-serif;
+	  font-weight: 300;
+	  line-height: 1.42em;
+	  color:#A7A1AE;
+	  background-color:#1F2739;
+	}
+	
+	h1 {
+	  font-size:3em; 
+	  font-weight: 300;
+	  line-height:1em;
+	  text-align: center;
+	  color: #4DC3FA;
+	}
+	
+	h2 {
+	  font-size:1em; 
+	  font-weight: 300;
+	  text-align: center;
+	  display: block;
+	  line-height:1em;
+	  padding-bottom: 2em;
+	  color: #FB667A;
+	}
+	
+	h2 a {
+	  font-weight: 700;
+	  text-transform: uppercase;
+	  color: #FB667A;
+	  text-decoration: none;
+	}
+	
+	.blue { color: #185875; }
+	.yellow { color: #FFF842; }
+	
+	.container th h1 {
+		  font-weight: bold;
+		  font-size: 1em;
+	  text-align: left;
+	  color: #185875;
+	}
+	
+	.container td {
+		  font-weight: normal;
+		  font-size: 1em;
+	  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+		   -moz-box-shadow: 0 2px 2px -2px #0E1119;
+				box-shadow: 0 2px 2px -2px #0E1119;
+	}
+	
+	.container {
+		  text-align: left;
+		  overflow: hidden;
+		  width: 80%;
+		  margin: 0 auto;
+	  display: table;
+	  padding: 0 0 8em 0;
+	}
+	
+	.container td, .container th {
+		  padding-bottom: 2%;
+		  padding-top: 2%;
+	  padding-left:2%;  
+	}
+	
+	/* Background-color of the odd rows */
+	.container tr:nth-child(odd) {
+		  background-color: #323C50;
+	}
+	
+	/* Background-color of the even rows */
+	.container tr:nth-child(even) {
+		  background-color: #2C3446;
+	}
+	
+	.container th {
+		  background-color: #1F2739;
+	}
+	
+	.container td:first-child { color: #FB667A; }
+	
+	.container tr:hover {
+	   background-color: #464A52;
+	-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+		   -moz-box-shadow: 0 6px 6px -6px #0E1119;
+				box-shadow: 0 6px 6px -6px #0E1119;
+	}
+	
+	.container td:hover {
+	  background-color: #FFF842;
+	  color: #403E10;
+	  font-weight: bold;
 	  
+	  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+	  transform: translate3d(6px, -6px, 0);
 	  
-	  /* demo styles */
-	  
-	  @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
-	  body{
-		background: -webkit-linear-gradient(left, #000000, #010e0f);
-		background: linear-gradient(to right, #01351f, #000b0c);
-		font-family: 'Roboto', sans-serif;
-	  }
-	  section{
-		margin: 50px;
-	  }
-	  
-	  
-	  /* follow me template */
-	  .made-with-love {
-		margin-top: 40px;
-		padding: 10px;
-		clear: left;
-		text-align: center;
-		font-size: 10px;
-		font-family: arial;
-		color: #fff;
-	  }
-	  .made-with-love i {
-		font-style: normal;
-		color: #F50057;
-		font-size: 14px;
-		position: relative;
-		top: 2px;
-	  }
-	  .made-with-love a {
-		color: #fff;
-		text-decoration: none;
-	  }
-	  .made-with-love a:hover {
-		text-decoration: underline;
-	  }
-	  
-	  
-	  /* for custom scrollbar for webkit browser*/
-	  
-	  ::-webkit-scrollbar {
-		  width: 6px;
-	  } 
-	  ::-webkit-scrollbar-track {
-		  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-	  } 
-	  ::-webkit-scrollbar-thumb {
-		  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-	  }
+	  transition-delay: 0s;
+		  transition-duration: 0.4s;
+		  transition-property: all;
+	  transition-timing-function: line;
+	}
+	
+	@media (max-width: 800px) {
+	.container td:nth-child(4),
+	.container th:nth-child(4) { display: none; }
+	}
 </style>
 	
 		<!-- header -->
@@ -140,7 +160,7 @@
 								</a>
 							</div>
 							<!-- logo -->
-							{%if request.user.is_authenticated %}
+	
 							<!-- menu start -->
 							<nav class="main-menu" style="display: flexbox; background-color:antiquewhite">
 								<ul>
@@ -165,23 +185,8 @@
 											
 										</ul>
 									</li>
-									<li><a href="#" class="fas fa-user-circle"></a>
-										<ul class="sub-menu">
-										
-											<li>{{user.username}}</li>
-													
-											<li><a href="{%url 'EdtPrf' %}">Editar Usuario</a></li>
-											<li> <form action="{% url 'Logout' %}" method="POST">
-													{% csrf_token %}
-													<button type="submit">
-														<i class="fas fa-sign-out-alt">Logout</i></button>    
-												</form>
-											
-											</li>
-										</ul>
-									</li>
-									<img src="{{user.avatar.image.url}}" alt="" width="40ppx" height="40ppx">
-						{%endif%}
+									<li><a href=""></a></li>
+									<li><a href=""></a></li>
 									<li>
 										<div class="header-icons">
 											<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
@@ -207,50 +212,46 @@
 	</div>
 	<!-- end search arewa -->
 	
-
-{%block lista%}
-
-	<h1>Stock Activo</h1>
-	<div class="tbl-header">
-	  <table cellpadding="0" cellspacing="0" border="0">
-		<thead>
-		  <tr>
-			<a href="{%url 'Cats'%}" class="bordered-btn">Categorias</a>
-			<a href="{%url 'Agregar'%}" class="bordered-btn">Agregar Producto</a>
-		  </tr>
-		  <tr>
-			<th>Nombre</th>
-			<th>Precio</th>
-			<th>precio Costo</th>
-			<th>Cantidad</th>
-			<th>Cateogria</th>
-			<th></th>
-			<th></th>
-
-		  </tr>
-		</thead>
-	  </table>
+	<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		
 	</div>
-	<div class="tbl-content">
-	  <table cellpadding="0" cellspacing="0" border="0">
-		<tbody>
-	{% for n in productos %}
-		  <tr>
-			<td class="product-name">{{n.nombre}}</td>
-			<td class="product-name">{{n.precio}}</td>
-			<td class="product-name">{{n.precio_costo}}</td>
-			<td class="product-name">{{n.cantidad}}</td>
-			<td class="product-name">{{n.categoria}}</td>
-			<td><a href="{%url 'EdtPro' n.id %}" class="bordered-btn">Editar</a></td>
-			<td><a href="{%url 'DelProd' n.id %}" class="bordered-btn">Eliminar</a></td>
-		  </tr>
-	{% endfor %}
-		</tbody>
-	  </table>
-	</div>
-  </section>
+	<!-- end breadcrumb section -->
 
-{%endblock%}
+	<!-- cart -->
+		<div>
+			<h1><span class="blue"></span>Proveedores<span class="blue"></span> <span class="yellow"></pan></h1>
+			
+			
+			<table class="container">
+				<thead>
+					<tr><th><a href="{%url 'AddProv' %}" class="bordered-btn" style="position: relative;">Añadir Proveedor</a></th></tr>
+					<tr>
+
+						<th><h1>Razon Social</h1></th>
+						<th><h1>Nombre</h1></th>
+						<th><h1>Rut</h1></th>
+						<th><h1>Giro</h1></th>
+		
+					</tr>
+					
+				</thead>
+				<tbody>
+				{%for n in proveedores%}
+					<tr>
+						<td>{{n.razonsocial}}</td>
+						<td>{{n.nombre}}</td>
+						<td>{{n.rut}}</td>
+						<td>{{n.giro}}</td>
+						<td><a href="{%url 'EdtProv' n.id%}" class="bordered-btn" style="position: relative;">Editar</a></td>
+						<td><a href="{%url 'DelProv' n.id%}" class="bordered-btn" style="position: relative;">Eliminar</a></td>
+					</tr>
+				{%endfor%}
+				</tbody>
+			</table>
+		</div>
+	
+	<!-- end logo carousel -->
 
 
 	<!-- footer -->
