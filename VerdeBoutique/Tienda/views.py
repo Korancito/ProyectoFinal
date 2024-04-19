@@ -15,32 +15,31 @@ from django.contrib.auth.decorators import login_required
 # ----------- Login / Registro -----------------
 
 def login_request(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
         
         if form.is_valid():
             
             usuario = form.cleaned_data.get("username")
-            passw = form.cleaned_data.get("password")
+            contra = form.cleaned_data.get("password")
             
-            user = authenticate(username=usuario, password=passw)
-            imagen = Avatar.objects.filter(uuser=request.user.id) #Para testear
+            user = authenticate(username=usuario, password=contra) 
             
             if user is not None:
-                login(request, user, imagen) #Generamos la variable previa para que el login solicite imagen de user.id
-                return redirect('Home')
+                login(request, user)
+                return redirect('Home')     
             
             else:
-                return HttpResponse(f"usuario no encontrado")
-            
+                return HttpResponse(f"usuario no encontrado")      
         else:
-            return render(request, "wrongdata.html")
-    
+            return HttpResponse(f"Form Incorrecto, {form}")   
+        
+        
     form = AuthenticationForm()
     return render(request, "login.html", {"form":form})
-    
-    form = AuthenticationForm()
-    return render(request, "login.html", {"form":form})
+
+
+
     
 def register(request):
     if request.method == "POST":
@@ -82,11 +81,16 @@ def editarPerfil(request):
             avatar_get= miform.cleaned_data.get('imagen')
             
             if avatar_get:
-                avatar = Avatar(user=usuario, imagen=avatar_get)
-                avatar.save()
-            
-            
-            usuario.save()                       
+                
+                try:
+                    avatar = Avatar.objects.get(user=usuario)
+                    avatar.image = avatar_get
+                    avatar.save()
+                except Avatar.DoesNotExist:
+                    avatar = Avatar(user=usuario, image=avatar_get)
+                    avatar.save()
+                    
+            usuario.save()             
             miform.save()
             
             return render(request,"Home.html")

@@ -87,7 +87,10 @@
 
 								<li><a href="" class="fas fa-user-circle"></a>
 									<ul class="sub-menu">
-										<li><a href="">Editar Usuario</a></li>
+										{%if request.user.is_authenticated %}
+										<li>{{user.username}}</li>
+												
+										<li><a href="{%url 'EdtPrf' %}">Editar Usuario</a></li>
 										<li> <form action="{% url 'Logout' %}" method="POST">
 												{% csrf_token %}
 												<button type="submit">
@@ -97,6 +100,9 @@
 										</li>
 									</ul>
 								</li>
+										<img src="{{user.avatar.image.url}}" alt="" width="40ppx" height="40ppx">
+										{%endif%}		
+									
 								<li>
 									<div class="header-icons">
 										

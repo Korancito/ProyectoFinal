@@ -38,7 +38,7 @@
 
 <body>
 	
-	{%block header%}
+	
 	
 	<!-- header -->
 	<div class="top-header-area" id="sticker">
@@ -93,11 +93,11 @@
 								</li>
 								<li><a href="">Comprar</a></li>
 
-								<li><a href="" class="fas fa-user-circle"></a>
+								<li><a href="#" class="fas fa-user-circle"></a>
 									<ul class="sub-menu">
-										{%if request.user.is_authenticated %}
+							{%if request.user.is_authenticated %}
 										<li>{{user.username}}</li>
-										{%endif%}			
+												
 										<li><a href="{%url 'EdtPrf' %}">Editar Usuario</a></li>
 										<li> <form action="{% url 'Logout' %}" method="POST">
 												{% csrf_token %}
@@ -108,9 +108,10 @@
 										</li>
 									</ul>
 								</li>
-								{%if request.user.is_authenticated %}
-								</a><img src="{{url}}" alt="" width="40ppx" height="40ppx">
-								{%endif%}						
+								
+								<img src="{{user.avatar.image.url}}" alt="" width="40ppx" height="40ppx">
+								
+							{%endif%}						
 								<li>
 									<div class="header-icons">
 										
@@ -128,7 +129,7 @@
 		</div>
 	</div>
 	<!-- end header -->
-	{%endblock%}
+	
 	{%block search%}
 	<!-- search area -->
 	<div class="search-area">

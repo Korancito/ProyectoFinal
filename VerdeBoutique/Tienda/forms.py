@@ -5,6 +5,7 @@ from .models import Productos, Categoria
 
 
 class CustomUserCreationForm(UserCreationForm):
+    
     first_name = forms.CharField(max_length=30, required=True)
     last_name = forms.CharField(max_length=30, required=True)
     email = forms.EmailField(required=True)
@@ -16,7 +17,9 @@ class CustomUserCreationForm(UserCreationForm):
         
 
 class UserEditForm(UserChangeForm):
-    password = None
+    
+    password1 = forms.CharField(label='Contrasenia', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Repetir Contrasenia', widget=forms.PasswordInput)
     first_name = forms.CharField(max_length=30, required=True)
     last_name = forms.CharField(max_length=30, required=True)
     email = forms.EmailField(required=True)

@@ -58,7 +58,7 @@
 							<ul>
 								<li class="current-list-item"><a href="{%url 'Home'%}">Menu</a></li>
 								
-								{%if request.user.is_authenticated %}
+								
 								<li><a href="{%url 'PrdL'%}">Productos</a>
 									<ul class="sub-menu">
 										<li><a href="">Lacteos</a></li>
@@ -86,9 +86,12 @@
 								</li>
 								<li><a href="">Comprar</a></li>
 
-								<li><a href="" class="fas fa-user-circle"></a>
+								<li><a href="#" class="fas fa-user-circle"></a>
 									<ul class="sub-menu">
-										<li><a href="">Editar Usuario</a></li>
+							{%if request.user.is_authenticated %}
+										<li>{{user.username}}</li>
+												
+										<li><a href="{%url 'EdtPrf' %}">Editar Usuario</a></li>
 										<li> <form action="{% url 'Logout' %}" method="POST">
 												{% csrf_token %}
 												<button type="submit">
@@ -98,12 +101,11 @@
 										</li>
 									</ul>
 								</li>
-								<li>
-									<div class="header-icons">
-										
-									</div>
-								</li>
-								{%endif%}
+								
+								<img src="{{user.avatar.image.url}}" alt="" width="40ppx" height="40ppx">
+								
+							{%endif%}					
+								
 							</ul>
 						</nav>
 						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
