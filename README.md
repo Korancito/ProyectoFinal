@@ -23,22 +23,22 @@ El concepto de la web, User-User interactua con un carrito ==EN CONSTRUCCION== y
 **el listado de formularios no refleja el nombre los mismos**
 
 ===Usuarios===
-<form>Login</form>
-<form>Registro</form>
-<form>EditUser</form>
+<>Login</>
+<>Registro</>
+<>EditUser</>
 
 ===Modelos===
-<form>AddProducto</form>
-<form>EditProducto</form>
-<form>AddCategoria</form>
-<form>EditCategoria</form>
-<form>AddProveedor</form>
-<form>EditProveedor</form>
-<form>AddStaff</form>
-<form>EditStaff</form>
+<>AddProducto</>
+<>EditProducto</>
+<>AddCategoria</>
+<>EditCategoria</>
+<>AddProveedor</>
+<>EditProveedor</>
+<>AddStaff</>
+<>EditStaff</>
 
 
-<form>EditUser</form> 
+<>EditUser</> 
 El formulario de edicion de usuario tiene la capacidad de modificar todos los datos del usuario, ademas de agregar o cambiar la imagen de avatar.
 
 
@@ -47,7 +47,7 @@ El formulario de edicion de usuario tiene la capacidad de modificar todos los da
 VerdeBoutique. **WEB**
 
 FirstPage = Pagina de acceso, menu a 'Productos' y 'Nosotros', sin contenido sensible, a modo de "Muestra al cliente"
-<button> Ingresa </button>
+<> Ingresa </>
 
 Login = Acceso a formulario de creacion de usuario/ Acceeso a 'Home' (Pagina Principal)
 
