@@ -1,0 +1,50 @@
+{}{%extends '#2StockActivo.html' %}
+{%load static%}
+
+
+{%block titulo%}<title>Staff</title>{%endblock%}
+
+
+
+
+{%block lista%}
+
+	<h1>Staff</h1>
+	<div class="tbl-header">
+	<table cellpadding="0" cellspacing="0" border="0">
+		<thead>
+		<tr>
+			<a href="{%url 'AddStf' %}" class="bordered-btn" style="position: relative;">Añadir Personal</a>
+		</tr>
+		<tr>
+
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Status</th>
+			<th>Contacto</th>
+			<th>Email</th>
+		
+		</tr>
+		</thead>
+	</table>
+	</div>
+	<div class="tbl-content">
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+	{% for n in staffs %}
+		<tr>
+			<td class="product-name">{{n.nombre}}</td>
+			<td class="product-name">{{n.apellido}}</td>
+			<td class="product-name">{{n.status}}</td>
+			<td class="product-name">{{n.contacto}}</td>
+			<td class="product-name">{{n.emial}}</td>
+			<td><a href="{%url 'EdtStf' n.id%}" class="bordered-btn" style="position: relative;">Editar</a></td>
+			<td><a href="{%url 'DelStf' n.id%}" class="bordered-btn" style="position: relative;">Eliminar</a></td>
+		</tr>
+	{% endfor %}
+		</tbody>
+	</table>
+	</div>
+	</section>
+
+{%endblock%}

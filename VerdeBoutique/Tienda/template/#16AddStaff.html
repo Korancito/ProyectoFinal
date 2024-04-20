@@ -1,0 +1,52 @@
+{%extends '#1AddProd.html'%}
+{%load static%}
+
+{%block titulo%}<title>Añadir Staff</title>{%endblock%}
+
+{%block formulario%}
+
+
+<div class="testbox">
+	<form action="AddStf" method="POST">
+		{%csrf_token%}
+	  <div class="banner">
+		<h1>Nuevo Staff</h1>
+	  </div>
+	  <br/>
+	  <p>
+	  <center>
+
+	  </center>
+	  </p>
+	  <br/>
+	  <div class="colums">
+		<div class="item">
+		  <label for="Nombre"> Nombre<span>*</span></label>
+		  <input id="id_nombre" type="text" name="nombre" class="from-input" required/>
+		</div>
+		<div class="item">
+			<label for="Apellido"> Apellido<span>*</span></label>
+			<input id="id_apellido" type="text" name="apellido" class="from-input" required/>
+		</div>
+		<div class="item">
+			<label for="Status"> Status<span>*</span></label>
+			<input id="id_status" type="text" name="status" class="from-input" required/>
+		</div>  
+		<div class="item">
+			<label for="Contacto"> Numero de Contacto<span>*</span></label>
+			<input id="id_contacto" type="number" name="contacto" class="from-input" required/>
+		</div>
+		<div class="item">
+			<label for="Email"> Email<span>*</span></label>
+			<input id="id_email" type="email" name="email" class="from-input" required/>
+		</div>
+	  <div class="btn-block">
+		<button type="submit" href="/">Finalizar</button>
+	  </div>
+	</form>
+</div>
+
+
+{%endblock%}
+
+{%block copy%} {%endblock%}

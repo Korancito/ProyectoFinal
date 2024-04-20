@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from .models import Productos, Categoria
 
 
+# ----------- Usuario Custom
+
 class CustomUserCreationForm(UserCreationForm):
     
     first_name = forms.CharField(max_length=30, required=True)
@@ -15,7 +17,7 @@ class CustomUserCreationForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
         
-
+# ----------- Edicion de Usuario
 class UserEditForm(UserChangeForm):
     
     password1 = forms.CharField(label='Contrasenia', widget=forms.PasswordInput)
@@ -30,17 +32,16 @@ class UserEditForm(UserChangeForm):
         model = User
         fields = ['first_name', 'last_name', 'email', 'username', 'imagen']
 
+# ----------- Productos
 
-
-
-class Productos_formulario(forms.Form):
+class Productos_formulario(forms.Form):  #No esta en uso
     nombre = forms.CharField(max_length=100)
     cantidad = forms.IntegerField()
     precio = forms.DecimalField(max_digits=10, decimal_places=2)
     precio_costo = forms.DecimalField(max_digits=10, decimal_places=2)
     
-    
-    
+
+     
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Productos
@@ -51,14 +52,27 @@ class ProductForm(forms.ModelForm):
         widget=forms.CheckboxSelectMultiple,
         required=False
     )
+
+# ----------- Categorias   
     
 class CatForm(forms.Form):
     nombre = forms.CharField(max_length=100)
 
+# ----------- Proveedores
 
 class ProvForm(forms.Form):
     razonsocial = forms.CharField(max_length=60)
     nombre = forms.CharField(max_length=60)
     rut = forms.IntegerField()
     giro = forms.CharField(max_length=60)
+
+# ----------- Staff    
+    
+class StaffForm(forms.Form):
+    nombre = forms.CharField(max_length=100)
+    apellido = forms.CharField(max_length=100)
+    status = forms.CharField(max_length=100)
+    contacto = forms.CharField(max_length=100)
+    email = forms.EmailField(max_length=100)
+    
     

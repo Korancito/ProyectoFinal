@@ -6,12 +6,14 @@ from django.contrib.auth.views import LogoutView
 urlpatterns = [
     
     # --------- Navegacion Simple ------------
+    
     path('', views.intro, name='First'),
     path('Preview/', views.previewproduct, name='Preview'),
     path('Nosotros/', views.aboutus, name='About'),
     path('Home', views.home, name='Home'),
     path('#10Nosotros/', views.nosotroslog, name='NosL'),
     path('#11Prductos/', views.productslog, name='PrdL'),
+    path('QuienesSon/', views.quienes, name='Quien'),
     
     #------------ Login ----------------------
     
@@ -54,8 +56,8 @@ urlpatterns = [
     
     path('Staff', views.ver_s, name='SeeStaff'),
     path('AddStf', views.agregar_s, name='AddStf'),
-    path('editStaff', views.edit_s, name='EdtStf'),
-    path('delStaff', views.del_s, name='DelStf'),
+    path('editStaff/<int:id>', views.edit_s, name='EdtStf'),
+    path('delStaff/<int:id>', views.del_s, name='DelStf'),
     
     
 ]

@@ -58,7 +58,7 @@ class Staff(models.Model):
     
     
     def __str__(self):
-        return self.nombre, self.apellido, self.status, self.contacto, self.email
+        return f"{self.nombre}, {self.apellido}, {self.status}, {self.contacto}, {self.email}"
     
 #---------------- Usuarios
 

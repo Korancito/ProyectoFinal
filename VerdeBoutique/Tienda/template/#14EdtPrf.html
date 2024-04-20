@@ -66,38 +66,71 @@
 							<!-- logo -->
 	
 							<!-- menu start -->
-							<nav class="main-menu" style="display: flexbox; background-color:antiquewhite">
-								<ul>
-									<li class="current-list-item"><a href="{%url 'Home'%}">Home</a>
+							<nav class="main-menu">
+							<ul>
+								<li class="current-list-item"><a href="{%url 'Home'%}">Home</a>
 									
-									</li>
-									<li><a href=""></a></li>
-									<li><a href="" style="color: chocolate;">Productos</a>
-										<ul class="sub-menu">
-											
-											<li><a href="{%url 'Agregar' %}">Añadir Producto</a></li>
-											<li><a href="{%url 'StockA' %}">Stock Activo</a></li>
-											<li><a href="{%url 'Cats' %}">Categoria</a></li>
-											
-										</ul>
-									</li>
-									<li><a href="" style="color: chocolate;">Nuestros Proveedores</a>
-										<ul class="sub-menu">
-											<li><a href="{%url 'AddProv' %}">Añadir Proveedores</a></li>
-											<li><a href="{%url 'Proveedor' %}">Proveedores</a></li>
-											
-											
-										</ul>
-									</li>
-									<li><a href=""></a></li>
-									<li><a href=""></a></li>
-									<li>
-										<div class="header-icons">
-											<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-										</div>
-									</li>
-								</ul>
-							</nav>
+								</li>
+								<li><a href="{%url 'NosL' %}" style="color: chocolate;">Nosotros</a>
+									<ul class="sub-menu">
+										{%if user.is_staff%}
+										<li><a href="{%url 'SeeStaff' %}">Staff List</a></li>
+										<li><a href="{%url 'AddStf' %}">Añadir Staff</a></li>
+										{%endif%}
+									</ul>
+								</li>
+								<li><a href="{%url 'PrdL'%}" style="color: chocolate;">Productos</a>
+									<ul class="sub-menu">
+										<li><a href="">Lacteos</a></li>
+										<li><a href="">Frutas</a></li>
+										<li><a href="">Verduras</a></li>
+										<li><a href="">Otros</a></li>
+										{%if user.is_staff%}
+										<li><a href="{%url 'Agregar' %}">Añadir Producto</a></li>
+										<li><a href="{%url 'StockA' %}">Stock Activo</a></li>
+										<li><a href="{%url 'Cats' %}">Categorias</a></li>
+										{%endif%}
+										
+									</ul>
+								</li>
+								<li><a href="" style="color: chocolate;">Nuestros Proveedores</a>
+									<ul class="sub-menu">
+											<li><a href="">¿Quienes son?</a></li>
+										{%if user.is_staff %}
+										<li><a href="{%url 'Proveedor' %}">Proveedores</a></li>
+										<li><a href="{%url 'Agregar' %}">Añadir Proveedores</a></li>
+										{%endif%}
+									</ul>
+								</li>
+								<li><a href="" style="color: chocolate;">Comprar</a></li>
+
+								<li><a href="#" class="fas fa-user-circle" style="color: black;"></a>
+									<ul class="sub-menu">
+							{%if request.user.is_authenticated %}
+										<li>{{user.username}}</li>
+												
+										<li><a href="{%url 'EdtPrf' %}">Editar Usuario</a></li>
+										<li> <form action="{% url 'Logout' %}" method="POST">
+												{% csrf_token %}
+												<button type="submit">
+													<i class="fas fa-sign-out-alt">Logout</i></button>    
+											</form>
+										
+										</li>
+									</ul>
+								</li>
+								
+								<img src="{{user.avatar.image.url}}" alt="" width="40ppx" height="40ppx">
+								
+							{%endif%}						
+								<li>
+									<div class="header-icons">
+										
+									</div>
+								</li>
+							</ul>
+							
+						</nav>
 							<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 							<div class="mobile-menu"></div>
 							<!-- menu end -->

@@ -9,7 +9,7 @@
 	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
 	<!-- title -->
-	{%block titulo%}<title>Agregar Producto</title>{%endblock%}
+	<title>Editar Staff</title>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="{%static 'Tienda/assets/img/favicon1.png' %}">
@@ -248,47 +248,31 @@
 									<li class="current-list-item"><a href="{%url 'Home'%}">Home</a>
 									
 									</li>
-									<li><a href="" style="color: chocolate;">Staff</a>
-										<ul class="sub-menu">
-											
-											<li><a href="{%url 'SeeStaff' %}">Staff List</a></li>
-											<li><a href="{%url 'AddStf' %}">Añadir Staff</a></li>
-				
-										</ul>
-									</li>
+									<li><a href=""></a></li>
 									<li><a href="" style="color: chocolate;">Productos</a>
 										<ul class="sub-menu">
 											
 											<li><a href="{%url 'Agregar' %}">Añadir Producto</a></li>
 											<li><a href="{%url 'StockA' %}">Stock Activo</a></li>
 											<li><a href="{%url 'Cats' %}">Categoria</a></li>
+											
 										</ul>
 									</li>
 									<li><a href="" style="color: chocolate;">Nuestros Proveedores</a>
 										<ul class="sub-menu">
 											<li><a href="{%url 'AddProv' %}">Añadir Proveedores</a></li>
 											<li><a href="{%url 'Proveedor' %}">Proveedores</a></li>
-										</ul>
-									</li>
-									<li><a href=""></a></li>
-									<li><a href=""></a></li>
-								
-									<li><a href="#" class="fas fa-user-circle" style="color: black;"></a>
-										<ul class="sub-menu">
-										
-											<li>{{user.username}}</li>
-													
-											<li><a href="{%url 'EdtPrf' %}">Editar Usuario</a></li>
-											<li> <form action="{% url 'Logout' %}" method="POST">
-													{% csrf_token %}
-													<button type="submit">
-														<i class="fas fa-sign-out-alt">Logout</i></button>    
-												</form>
 											
-											</li>
+											
 										</ul>
 									</li>
-									<img src="{{user.avatar.image.url}}" alt="" width="40ppx" height="40ppx">
+									<li><a href=""></a></li>
+									<li><a href=""></a></li>
+									<li>
+										<div class="header-icons">
+											<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+										</div>
+									</li>
 								</ul>
 							</nav>
 							<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
@@ -306,13 +290,13 @@
 
 	<!-- breadcrumb-section -->
 
-{%block formulario%}
+
 	<!-- end breadcrumb section -->
 	<div class="testbox">
-		<form action="agregar_producto" method="POST">
+		<form action="{% url 'EdtStf' staffs.id %}" method="POST">
 			{%csrf_token%}
 		  <div class="banner">
-			<h1>Nuevo Producto</h1>
+			<h1>Editar Staff</h1>
 		  </div>
 		  <br/>
 		  <p>
@@ -323,65 +307,29 @@
 		  <br/>
 		  <div class="colums">
 			<div class="item">
-			  <label for="Nombre"> Nombre de Producto<span>*</span></label>
+			  <label for="Nombre"> Nombre<span>*</span></label>
 			  <input id="id_nombre" type="text" name="nombre" class="from-input" required/>
 			</div>
 			<div class="item">
-			  <label for="Cantidad"> Cantidad a ingresar<span>*</span></label>
-			  <input id="id_cantidad" type="text" name="cantidad" class="from-input" required/>
+				<label for="Apellido"> Apellido<span>*</span></label>
+				<input id="id_apellido" type="text" name="apellido" class="from-input" required/>
 			</div>
 			<div class="item">
-			  <label for="Precio">Precio Venta Publico<span>*</span></label>
-			  <input id="id_precio" type="text" name="precio" step="0.01" required/>
+				<label for="Status"> Status<span>*</span></label>
+				<input id="id_status" type="text" name="status" class="from-input" required/>
+			</div>  
+			<div class="item">
+				<label for="Contacto"> Numero de Contacto<span>*</span></label>
+				<input id="id_contacto" type="number" name="contacto" class="from-input" required/>
 			</div>
 			<div class="item">
-			  <label for="Precio Costo">Costo Origen<span>*</span></label>
-			  <input id="id_precio_costo" type="text" step="0.01"  name="precio_costo" required/>
+				<label for="Email"> Email<span>*</span></label>
+				<input id="id_email" type="email" name="email" class="from-input" required/>
 			</div>
-		  </div>
-		  <div class="item">
-			<p>Categoria</p>
-			<select name="categorias">
-				{% for categoria in categorias %}
-					<option value="{{ categoria.pk }}">{{ categoria.nombre }}</option>
-				{% endfor %}
-			</select>
-		  </div>
-		  <div class="item">
-			<label for="visit">Comentarios Especiales</label>
-			<textarea id="" rows="3"></textarea>
-		  </div>
 		  <div class="btn-block">
 			<button type="submit" href="/">Finalizar</button>
 		  </div>
 		</form>
-	  </div>
-
-{%endblock%}
-
-{%block copy%}
-	  	<!-- copyright -->
-	<div class="copyright">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2024 - <a href="https://steamcommunity.com/profiles/76561198387410870/">Koran</a>,  All Rights Reserved.</p>
-				</div>
-				<div class="col-lg-6 text-right col-md-12">
-					<div class="social-icons">
-						<ul>
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
-	<!-- end copyright -->
-{%endblock%}
 </body>
 </html>

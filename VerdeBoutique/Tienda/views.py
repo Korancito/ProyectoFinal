@@ -124,6 +124,10 @@ def nosotroslog(request):
 def productslog(request):
     return render(request, "#11Products.html")
 
+@login_required
+def quienes(request):
+    return render(request, "#8NuestrosProv.html")
+
 
 
 # -------------- Staff Only ------------------ #
@@ -207,19 +211,59 @@ def del_p(request, id):
 
 @staff_member_required
 def ver_s(request):
-    pass
+    staffs = Staff.objects.all()
+    dicc = {'staffs':staffs}
+    return render(request, "#15StaffList.html", dicc)
 
 @staff_member_required
 def agregar_s(request):
-    pass
+    
+    if request.method == 'POST':
+        formS = StaffForm(request.POST)
+        if formS.is_valid():
+            datos = formS.cleaned_data
+            form = Staff(nombre=datos["nombre"], apellido=datos["apellido"], status=datos["status"], contacto=datos["contacto"], email=datos["email"])
+            form.save()
+            return redirect('SeeStaff')
+        
+    return render(request, "#16AddStaff.html")
+
 
 @staff_member_required
-def edit_s(request):
-    pass
+def edit_s(request,id):
+    staffs = Staff.objects.get(id=id)
+    
+    if request.method == 'POST':
+        form = StaffForm(request.POST)
+        if form.is_valid():
+            datos = form.cleaned_data
+            staffs.nombre = datos['nombre']
+            staffs.apellido = datos['apellido']
+            staffs.status = datos['status']
+            staffs.contacto = datos['contacto']
+            staffs.email = datos['email']
+            staffs.save()
+            
+            staff = Staff.objects.all()
+           
+            return render(request, '#15StaffList.html', {'staff':staff})
+    
+    else:
+        form = StaffForm(initial={'nombre':staffs.nombre, 'apellido':staffs.apellido, 'status':staffs.status, 'contacto':staffs.contacto, 'email':staffs.email})
+    
+    
+    return render(request, '#17EditStaff.html', {'form':form, 'staffs':staffs})
+   
+            
+    
 
 @staff_member_required
-def del_s(request):
-    pass
+def del_s(request,id):
+    staffs = Staff.objects.get(id=id)
+    staffs.delete()
+    
+    staff = Staff.objects.all()
+    return render(request, '#15StaffList.html', {'staff':staff})
 
 # --------------- Proveedores ------------
 
