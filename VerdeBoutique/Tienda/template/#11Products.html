@@ -9,10 +9,10 @@
 	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
 	<!-- title -->
-	<title>VerdeBoutique</title>
+	<title>Productos</title>
 
 	<!-- favicon -->
-	<link rel="shortcut icon" type="image/png" href="{%static 'Tienda/assets/img/favicon.png' %}">
+	<link rel="shortcut icon" type="image/png" href="{%static 'Tienda/assets/img/favicon1.png' %}">
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
@@ -78,8 +78,8 @@
 									<ul class="sub-menu">
 											<li><a href="">¿Quienes son?</a></li>
 										{%if user.is_staff %}
-										<li><a href="">Editar Proveedores</a></li>
-										<li><a href="">Añadir Proveedores</a></li>
+										<li><a href="{%url 'Proveedor'%}">Proveedores</a></li>
+										<li><a href="{%url 'AddProv'%}">Añadir Proveedores</a></li>
 										{%endif%}
 									</ul>
 								</li>

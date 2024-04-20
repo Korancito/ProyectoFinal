@@ -30,9 +30,9 @@ def login_request(request):
                 return redirect('Home')     
             
             else:
-                return HttpResponse(f"usuario no encontrado")      
+                return render(request, 'wrongdata.html')      
         else:
-            return HttpResponse(f"Form Incorrecto, {form}")   
+            return render(request, 'wrongdata.html')
         
         
     form = AuthenticationForm()
