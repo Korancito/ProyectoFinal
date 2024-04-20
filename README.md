@@ -25,7 +25,7 @@ El concepto de la web, User-User interactua con un carrito ==EN CONSTRUCCION== y
 ===Usuarios===
 <form>Login</form>
 <form>Registro</form>
-<form>EditUser/form>
+<form>EditUser</form>
 
 ===Modelos===
 <form>AddProducto</form>
@@ -38,6 +38,8 @@ El concepto de la web, User-User interactua con un carrito ==EN CONSTRUCCION== y
 <form>EditStaff</form>
 
 
+<form>EditUser</form> 
+El formulario de edicion de usuario tiene la capacidad de modificar todos los datos del usuario, ademas de agregar o cambiar la imagen de avatar.
 
 
 
